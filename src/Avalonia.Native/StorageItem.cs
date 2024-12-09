@@ -149,4 +149,11 @@ internal class StorageFolder(
         var folder = BclStorageItem.CreateFolderCore(directoryInfo, name);
         return Task.FromResult((IStorageFolder?)WrapFileSystemInfo(folder, ScopeOwnerUri));
     }
+
+    public Task<IStorageItem> GetItemAsync(string name)
+    {
+        using var scope = OpenScope();
+        var item = BclStorageItem.GetItemCore(directoryInfo, name);
+        return Task.FromResult(WrapFileSystemInfo(item, ScopeOwnerUri));
+    }
 }

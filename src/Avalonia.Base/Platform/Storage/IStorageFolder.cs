@@ -19,6 +19,15 @@ public interface IStorageFolder : IStorageItem
     IAsyncEnumerable<IStorageItem> GetItemsAsync();
 
     /// <summary>
+    /// Gets the file or folder with the specified name from the current folder.
+    /// </summary>
+    /// <param name="name">The name (or path relative to the current folder) of the file or folder to get</param>
+    /// <returns>
+    /// When this method completes successfully, it returns the file and folder with the specified name from the current folder.
+    /// </returns>
+    Task<IStorageItem> GetItemAsync(string name);
+
+    /// <summary>
     /// Creates a file with specified name as a child of the current storage folder
     /// </summary>
     /// <param name="name">The display name</param>

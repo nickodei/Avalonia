@@ -127,6 +127,23 @@ internal abstract class BclStorageItem(FileSystemInfo fileSystemInfo) : IStorage
         .OfType<FileSystemInfo>()
         .Concat(directoryInfo.EnumerateFiles());
 
+    internal static FileSystemInfo GetItemCore(DirectoryInfo directoryInfo, string name)
+    {
+        var path = System.IO.Path.Combine(directoryInfo.FullName, name);
+
+        if (File.Exists(path))
+        {
+            return new FileInfo(path);
+        }
+
+        if (Directory.Exists(path))
+        {
+            return new DirectoryInfo(path);
+        }
+
+        throw new FileNotFoundException();
+    }
+
     internal static FileInfo CreateFileCore(DirectoryInfo directoryInfo, string name)
     {
         var fileName = System.IO.Path.Combine(directoryInfo.FullName, name);

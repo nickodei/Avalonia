@@ -257,6 +257,11 @@ internal sealed class IOSStorageFolder : IOSStorageItem, IStorageBookmarkFolder
         }
     }
 
+    public Task<IStorageItem> GetItemAsync(string name)
+    {
+        //TODO: Implement
+        throw new NotImplementedException();
+    }
     public Task<IStorageFile?> CreateFileAsync(string name)
     {
         try

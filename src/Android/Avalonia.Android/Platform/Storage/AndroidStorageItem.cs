@@ -214,6 +214,12 @@ internal class AndroidStorageFolder : AndroidStorageItem, IStorageBookmarkFolder
         return Task.FromResult(new StorageItemProperties());
     }
 
+    public Task<IStorageItem> GetItemAsync(string name)
+    {
+        //TODO: Implement
+        throw new NotImplementedException();
+    }
+
     public async IAsyncEnumerable<IStorageItem> GetItemsAsync()
     {
         if (!await EnsureExternalFilesPermission(false))

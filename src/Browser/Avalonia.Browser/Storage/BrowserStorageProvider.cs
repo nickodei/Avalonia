@@ -350,6 +350,12 @@ internal class JSStorageFolder : JSStorageItem, IStorageBookmarkFolder
         }
     }
 
+    public Task<IStorageItem> GetItemAsync(string name)
+    {
+        //TODO: Implement
+        throw new NotImplementedException();
+    }
+
     public async Task<IStorageFile?> CreateFileAsync(string name)
     {
         try
